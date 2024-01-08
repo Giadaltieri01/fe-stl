@@ -750,18 +750,18 @@ avalable at https://github.com/madpilot78/fe-stl.git
                     </td>
                     <td class="relative border border-slate-600">
                       <span class="text-2xs absolute left-0 top-0 p-0.5">Aliquota (%):</span>
+                      <span class="block font-mono text-center pt-4">
                       <xsl:if test="AliquotaRitenuta">
-                        <span class="block font-mono text-center pt-4">
                           <xsl:value-of select="AliquotaRitenuta" />
-                        </span>
                       </xsl:if>
+                       </span>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="3" class="relative border border-slate-600">
                       <span class="text-2xs absolute left-0 top-0 p-0.5">Causale di pagamento:</span>
+                      <span class="block text-center pt-4">
                       <xsl:if test="CausalePagamento">
-                        <span class="block text-center pt-4">
                           <xsl:value-of select="CausalePagamento" />
                           <xsl:variable name="CP">
                             <xsl:value-of select="CausalePagamento" />
@@ -769,8 +769,8 @@ avalable at https://github.com/madpilot78/fe-stl.git
                           <xsl:if test="$CP!=''">
                             (decodifica come da modello CU)
                           </xsl:if>
-                        </span>
                       </xsl:if>
+                       </span>
                     </td>
                   </tr>
                 </tbody>
