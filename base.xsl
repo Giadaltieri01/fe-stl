@@ -693,6 +693,142 @@ avalable at https://github.com/madpilot78/fe-stl.git
               </table>
             </xsl:if>
 
+
+
+
+
+
+          <xsl:if test="DatiGenerali/DatiGeneraliDocumento/DatiCassaPrevidenziale">
+
+            <xsl:for-each select="DatiGenerali/DatiGeneraliDocumento/DatiCassaPrevidenziale">
+              <table class="table-fixed w-full border border-slate-600 mt-4">
+                <thead>
+                  <tr>
+                    <th colspan="3" class="border border-slate-600 bg-slate-500 text-amber-600">Cassa Previdenziale</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="relative border border-slate-600">
+                      <span class="text-2xs absolute left-0 top-0 p-0.5">Tipo Cassa:</span>
+
+                      <xsl:if test="TipoCassa">
+                        <span class="block text-center pt-4">
+                          <xsl:variable name="TC">
+                            <xsl:value-of select="TipoCassa"/>
+                          </xsl:variable>
+
+                          <xsl:choose>
+                            <xsl:when test="$TC='TC01'">
+                              Cassa nazionale previdenza e assistenza avvocati e procuratori legali
+                            </xsl:when>
+                            <xsl:when test="$TC='TC02'">
+                              Cassa previdenza dottori commercialisti
+                            </xsl:when>
+                            <xsl:when test="$TC='TC03'">
+                              Cassa previdenza e assistenza geometri
+                            </xsl:when>
+                            <xsl:when test="$TC='TC04'">
+                              Cassa nazionale previdenza e assistenza ingegneri e architetti liberi professionisti
+                            </xsl:when>
+                            <xsl:when test="$TC='TC05'">
+                              Cassa nazionale del notariato
+                            </xsl:when>
+                            <xsl:when test="$TC='TC06'">
+                              Cassa nazionale previdenza e assistenza ragionieri e periti commerciali
+                            </xsl:when>
+                            <xsl:when test="$TC='TC08'">
+                              Ente nazionale previdenza e assistenza consulenti del lavoro (ENPACL)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC09'">
+                              Ente nazionale previdenza e assistenza medici (ENPAM)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC10'">
+                              Ente nazionale previdenza e assistenza farmacisti (ENPAF)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC11'">
+                              Ente nazionale previdenza e assistenza veterinari (ENPAV)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC12'">
+                              Ente nazionale previdenza e assistenza impiegati dell'agricoltura (ENPAIA)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC13'">
+                              Fondo previdenza impiegati imprese di spedizione e agenzie marittime
+                            </xsl:when>
+                            <xsl:when test="$TC='TC14'">
+                              Istituto nazionale previdenza giornalisti italiani (INPGI)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC15'">
+                              Opera nazionale assistenza orfani sanitari italiani (ONAOSI)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC16'">
+                              Cassa autonoma assistenza integrativa giornalisti italiani (CASAGIT)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC17'">
+                              Ente previdenza periti industriali e periti industriali laureati (EPPI)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC18'">
+                              Ente previdenza e assistenza pluricategoriale (EPAP)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC19'">
+                              Ente nazionale previdenza e assistenza biologi (ENPAB)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC20'">
+                              Ente nazionale previdenza e assistenza professione infermieristica (ENPAPI)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC21'">
+                              Ente nazionale previdenza e assistenza psicologi (ENPAP)
+                            </xsl:when>
+                            <xsl:when test="$TC='TC22'">
+                              INPS
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <span>(!!! codice non previsto !!!)</span>
+                            </xsl:otherwise>
+                          </xsl:choose>
+                        </span>
+                        <span class="absolute left-0 bottom-0 font-mono text-xs text-gray-500 p-0.5">
+                          <xsl:value-of select="TipoCassa"/>
+                        </span>
+                      </xsl:if>
+                    </td>
+                    <td class="relative border border-slate-600">
+                      <span class="text-2xs absolute left-0 top-0 p-0.5">Cassa:</span>
+                      <xsl:if test="AlCassa">
+                        <span class="block font-mono text-center pt-4">
+                          <xsl:value-of select="AlCassa"/>
+                        </span>
+                      </xsl:if>
+                    </td>
+                    <td class="relative border border-slate-600">
+                      <span class="text-2xs absolute left-0 top-0 p-0.5">Importo Contributo Cassa:</span>
+                      <span class="block font-mono text-center pt-4">
+                        <xsl:if test="ImportoContributoCassa">
+                          <xsl:value-of select="ImportoContributoCassa"/>
+                        </xsl:if>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="relative border border-slate-600">
+                      <span class="text-2xs absolute left-0 top-0 p-0.5">Imponibile Cassa:</span>
+                      <span class="block text-center pt-4">
+                        <xsl:if test="ImponibileCassa">
+                          <xsl:value-of select="ImponibileCassa"/>
+                        </xsl:if>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </xsl:for-each>
+
+          </xsl:if>
+
+
+
+
+
            
 
             <xsl:if test="DatiBeniServizi/DettaglioLinee">
