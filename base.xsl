@@ -1129,7 +1129,10 @@ avalable at https://github.com/madpilot78/fe-stl.git
             </xsl:if>
 
              <xsl:if test="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
-              <table class="table-fixed w-full border border-slate-600 mt-4">
+
+              <xsl:for-each select="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
+            
+               <table class="table-fixed w-full border border-slate-600 mt-4">
                 <thead>
                   <tr>
                     <th colspan="3" class="border border-slate-600 bg-slate-500 text-amber-600">Ritenuta</th>
@@ -1138,12 +1141,18 @@ avalable at https://github.com/madpilot78/fe-stl.git
                 <tbody>
                   <tr>
                     <td class="relative border border-slate-600">
+                    
                       <span class="text-2xs absolute left-0 top-0 p-0.5">Tipo:</span>
-                      <xsl:if test="TipoRitenuta">
+
+                  
+                      <xsl:if test="TipoRitenuta">    
+
                         <span class="block text-center pt-4">
+                         
                           <xsl:variable name="TR">
-                            <xsl:value-of select="TipoRitenuta" />
+                            <xsl:value-of select="TipoRitenuta"/>
                           </xsl:variable>
+                       
                           <xsl:choose>
                             <xsl:when test="$TR='RT01'">
                               ritenuta persone fisiche
@@ -1171,7 +1180,7 @@ avalable at https://github.com/madpilot78/fe-stl.git
                           </xsl:choose>
                         </span>
                         <span class="absolute left-0 bottom-0 font-mono text-xs text-gray-500 p-0.5">
-                          <xsl:value-of select="TipoRitenuta" />
+                          <xsl:value-of select="TipoRitenuta"/>
                         </span>
                       </xsl:if>
                     </td>
@@ -1179,7 +1188,7 @@ avalable at https://github.com/madpilot78/fe-stl.git
                       <span class="text-2xs absolute left-0 top-0 p-0.5">Importo:</span>
                       <xsl:if test="ImportoRitenuta">
                         <span class="block font-mono text-center pt-4">
-                          <xsl:value-of select="ImportoRitenuta" />
+                          <xsl:value-of select="ImportoRitenuta"/>
                         </span>
                       </xsl:if>
                     </td>
@@ -1187,7 +1196,7 @@ avalable at https://github.com/madpilot78/fe-stl.git
                       <span class="text-2xs absolute left-0 top-0 p-0.5">Aliquota (%):</span>
                       <span class="block font-mono text-center pt-4">
                       <xsl:if test="AliquotaRitenuta">
-                          <xsl:value-of select="AliquotaRitenuta" />
+                          <xsl:value-of select="AliquotaRitenuta"/>
                       </xsl:if>
                        </span>
                     </td>
@@ -1197,9 +1206,9 @@ avalable at https://github.com/madpilot78/fe-stl.git
                       <span class="text-2xs absolute left-0 top-0 p-0.5">Causale di pagamento:</span>
                       <span class="block text-center pt-4">
                       <xsl:if test="CausalePagamento">
-                          <xsl:value-of select="CausalePagamento" />
+                          <xsl:value-of select="CausalePagamento"/>
                           <xsl:variable name="CP">
-                            <xsl:value-of select="CausalePagamento" />
+                            <xsl:value-of select="CausalePagamento"/>
                           </xsl:variable>
                           <xsl:if test="$CP!=''">
                             (decodifica come da modello CU)
@@ -1210,6 +1219,8 @@ avalable at https://github.com/madpilot78/fe-stl.git
                   </tr>
                 </tbody>
               </table>
+              </xsl:for-each>
+             
               </xsl:if>
 
             <xsl:if test="Allegati">
